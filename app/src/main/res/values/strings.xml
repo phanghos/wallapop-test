@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Wallapop Test</string>
+    <string name="error">Something went wrong</string>
+    <string name="network_error">Please check your internet connection</string>
+</resources>
