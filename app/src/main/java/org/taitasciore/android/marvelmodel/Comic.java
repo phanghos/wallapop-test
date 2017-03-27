@@ -14,27 +14,21 @@ public class Comic {
     @SerializedName("id")
     @Expose
     private Integer id;
-    @SerializedName("digitalId")
-    @Expose
-    private Integer digitalId;
     @SerializedName("title")
     @Expose
     private String title;
     @SerializedName("description")
     @Expose
     private String description;
-    @SerializedName("resourceURI")
-    @Expose
-    private String resourceURI;
-    @SerializedName("urls")
-    @Expose
-    private List<Url> urls = null;
     @SerializedName("thumbnail")
     @Expose
     private Thumbnail thumbnail;
     @SerializedName("images")
     @Expose
     private List<Image> images = null;
+    @SerializedName("prices")
+    @Expose
+    private List<Price> prices;
 
     public Integer getId() {
         return id;
@@ -42,14 +36,6 @@ public class Comic {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getDigitalId() {
-        return digitalId;
-    }
-
-    public void setDigitalId(Integer digitalId) {
-        this.digitalId = digitalId;
     }
 
     public String getTitle() {
@@ -68,22 +54,6 @@ public class Comic {
         this.description = description;
     }
 
-    public String getResourceURI() {
-        return resourceURI;
-    }
-
-    public void setResourceURI(String resourceURI) {
-        this.resourceURI = resourceURI;
-    }
-
-    public List<Url> getUrls() {
-        return urls;
-    }
-
-    public void setUrls(List<Url> urls) {
-        this.urls = urls;
-    }
-
     public Thumbnail getThumbnail() {
         return thumbnail;
     }
@@ -96,7 +66,15 @@ public class Comic {
         return images;
     }
 
-    public void setImages(List<Image> images) {
+    public void setImages(List<Image> prices) {
         this.images = images;
+    }
+
+    public List<Price> getPrices() {
+        return prices;
+    }
+
+    public void setPrices(List<Price> prices) {
+        this.prices = prices;
     }
 }

@@ -11,6 +11,9 @@ import retrofit2.http.Query;
  * Created by roberto on 21/03/17.
  */
 
+/**
+ * 
+ */
 public interface MarvelApi {
 
     String PUBLIC_KEY = "6a7ed890b4b941a925202a5630d5b162";

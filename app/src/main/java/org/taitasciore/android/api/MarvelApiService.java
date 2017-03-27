@@ -18,7 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by roberto on 21/03/17.
  */
 
-public class MarvelApiImpl {
+public class MarvelApiService {
 
     public static String API_URL = "http://gateway.marvel.com/v1/public/";
 
@@ -36,7 +36,7 @@ public class MarvelApiImpl {
         void onError();
     }
 
-    public MarvelApiImpl() {
+    public MarvelApiService() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API_URL)
                 .addConverterFactory(GsonConverterFactory.create())

@@ -27,12 +27,12 @@ import static org.junit.Assert.assertThat;
 @RunWith(RobolectricTestRunner.class)
 public class DetailsFragmentTest {
 
-    MainActivity mActivity;
+    ComicsActivity mActivity;
     DetailsFragment mFragment;
 
     @Before
     public void setUp() throws Exception {
-        mActivity = Robolectric.setupActivity(MainActivity.class);
+        mActivity = Robolectric.setupActivity(ComicsActivity.class);
         mFragment = DetailsFragment.newInstance(0);
         mActivity.getSupportFragmentManager().beginTransaction()
                 .add(R.id.content, mFragment, "details_fragment").commit();

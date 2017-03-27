@@ -1,6 +1,5 @@
 package org.taitasciore.android.wallapoptest;
 
-import android.os.Build;
 import android.support.v4.app.Fragment;
 
 import org.junit.Before;
@@ -17,19 +16,33 @@ import static org.junit.Assert.*;
  */
 @Config(constants = BuildConfig.class, sdk = 21)
 @RunWith(RobolectricTestRunner.class)
-public class MainActivityTest {
+public class ComicsActivityTest {
 
-    MainActivity mActivity;
+    ComicsActivity mActivity;
 
     @Before
     public void setUp() throws Exception {
-        mActivity = Robolectric.setupActivity(MainActivity.class);
+        mActivity = Robolectric.setupActivity(ComicsActivity.class);
     }
 
     @Test
-    public void shouldNotBeNull() throws Exception {
+    public void activityShouldNotBeNull() throws Exception {
         assertNotNull(mActivity);
+    }
+
+    @Test
+    public void fragmentShouldNotBeNull() throws Exception {
         Fragment fragment = mActivity.getSupportFragmentManager().findFragmentByTag("comics_fragment");
         assertNotNull(fragment);
+    }
+
+    @Test
+    public void actionBarShouldNotBeNull() throws Exception {
+        assertNotNull(mActivity.getSupportActionBar());
+    }
+
+    @Test
+    public void actionBarShouldShowCorrectTitle() throws Exception {
+        assertEquals("Comics", mActivity.getSupportActionBar().getTitle());
     }
 }

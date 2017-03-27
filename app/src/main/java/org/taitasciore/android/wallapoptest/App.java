@@ -12,6 +12,10 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class App extends Application {
 
+    /**
+     * Initializes Facebooks' Fresco and configures
+     * default font for use by Calligraphy
+     */
     @Override
     public void onCreate() {
         super.onCreate();

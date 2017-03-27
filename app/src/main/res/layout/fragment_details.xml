@@ -3,17 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:layout_height="match_parent">
 
         <com.wang.avi.AVLoadingIndicatorView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/loader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             style="@style/AVLoadingIndicatorView"
             app:indicatorName="BallPulseIndicator"
             app:indicatorColor="?attr/colorAccent"
@@ -23,7 +23,8 @@
             android:id="@+id/btnRetry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:gravity="center"
             android:padding="16dp"
             android:background="?attr/colorAccent"
@@ -33,42 +34,57 @@
             android:visibility="gone"
             fontPath="fonts/OpenSans-Semibold.ttf" />
 
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:textColor="@color/colorPrimaryText"
-            android:textSize="@dimen/title_text_size"
-            fontPath="fonts/OpenSans-Semibold.ttf" />
-
         <com.facebook.drawee.view.SimpleDraweeView xmlns:fresco="http://schemas.android.com/apk/res-auto"
             android:id="@+id/img"
-            android:layout_width="@dimen/img_width"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/img_height"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
             android:layout_gravity="center_horizontal"
-            android:scaleType="fitXY"
-            android:adjustViewBounds="true"
             fresco:fadeDuration="300"
-            fresco:actualImageScaleType="fitXY"
+            fresco:actualImageScaleType="centerCrop"
             fresco:roundedCornerRadius="3dp"
             fresco:roundTopLeft="true"
             fresco:roundTopRight="false"
             fresco:roundBottomLeft="false"
             fresco:roundBottomRight="true" />
 
+        <LinearLayout
+            android:id="@+id/lyHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/img"
+            android:padding="16dp"
+            android:background="?attr/colorAccent"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:textSize="@dimen/title_text_size"
+                fontPath="fonts/OpenSans-Semibold.ttf" />
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/year_text_size"
+                android:textColor="#fff"
+                fontPath="fonts/OpenSans-Light"/>
+
+        </LinearLayout>
+
         <TextView
             android:id="@+id/tvDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="?attr/actionBarSize"
+            android:layout_below="@id/lyHeader"
+            android:layout_margin="16dp"
             android:textColor="@color/colorSecondaryText"
             android:textSize="@dimen/description_text_size"
             fontPath="fonts/OpenSans-Light.ttf" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </ScrollView>
