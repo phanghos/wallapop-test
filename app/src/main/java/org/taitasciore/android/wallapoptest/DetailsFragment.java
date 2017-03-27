@@ -9,14 +9,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.labo.kaji.fragmentanimations.SidesAnimation;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import org.taitasciore.android.marvelmodel.Comic;
@@ -72,19 +70,6 @@ public class DetailsFragment extends Fragment implements DetailsView {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-    }
-
-    /**
-     * Shows fancy animation only when leaving fragment
-     * @param transit
-     * @param enter
-     * @param nextAnim
-     * @return
-     */
-    @Override
-    public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
-        if (enter) return null;
-        else return SidesAnimation.create(SidesAnimation.LEFT, enter, 500);
     }
 
     @Nullable
