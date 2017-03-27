@@ -4,9 +4,11 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+
+import com.liuguangqiang.swipeback.SwipeBackActivity;
+import com.liuguangqiang.swipeback.SwipeBackLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -16,7 +18,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
  * Created by roberto on 26/03/17.
  */
 
-public class DetailsActivity extends AppCompatActivity {
+public class DetailsActivity extends SwipeBackActivity {
 
     @BindView(R.id.toolbar) Toolbar mToolbar;
 
@@ -26,6 +28,7 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details);
         ButterKnife.bind(this);
         setupToolbar();
+        setDragEdge(SwipeBackLayout.DragEdge.LEFT);
 
         if (savedInstanceState == null) {
             int comicId = getIntent().getIntExtra(DetailsFragment.PARAM_COMIC_ID, 0);
