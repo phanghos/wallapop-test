@@ -32,7 +32,7 @@ public class ComicsActivityTest {
 
     @Test
     public void fragmentShouldNotBeNull() throws Exception {
-        Fragment fragment = mActivity.getSupportFragmentManager().findFragmentByTag("comics_fragment");
+        Fragment fragment = mActivity.getSupportFragmentManager().findFragmentByTag(ComicsFragment.TAG);
         assertNotNull(fragment);
     }
 

@@ -14,8 +14,6 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class ComicsActivity extends AppCompatActivity {
 
-    private static final String COMICS_FRAGMENT = "comics_fragment";
-
     @BindView(R.id.toolbar) Toolbar mToolbar;
 
     @Override
@@ -27,7 +25,7 @@ public class ComicsActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.content, new ComicsFragment(), COMICS_FRAGMENT).commit();
+                    .add(R.id.content, new ComicsFragment(), ComicsFragment.TAG).commit();
         }
     }
 

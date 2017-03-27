@@ -39,7 +39,10 @@ import butterknife.OnClick;
 
 public class DetailsFragment extends Fragment implements DetailsView {
 
-    int mComicId;
+    public static final String TAG = "details_fragment";
+    public static final String PARAM_COMIC_ID = "comic_id";
+
+    private int mComicId;
 
     @BindView(R.id.img) SimpleDraweeView mImg;
     @BindView(R.id.tvTitle) TextView mTvTitle;
@@ -53,14 +56,14 @@ public class DetailsFragment extends Fragment implements DetailsView {
         mPresenter.getComicById(mComicId);
     }
 
-    LinearLayout mHeader;
+    private LinearLayout mHeader;
 
-    DetailsPresenter mPresenter;
+    private DetailsPresenter mPresenter;
 
     public static DetailsFragment newInstance(int comicId) {
         DetailsFragment f = new DetailsFragment();
         Bundle args = new Bundle();
-        args.putInt("id", comicId);
+        args.putInt(PARAM_COMIC_ID, comicId);
         f.setArguments(args);
         return f;
     }
@@ -97,7 +100,7 @@ public class DetailsFragment extends Fragment implements DetailsView {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mComicId = getArguments().getInt("id");
+        mComicId = getArguments().getInt(PARAM_COMIC_ID);
 
         if (savedInstanceState == null && mPresenter.getSavedComic() == null) {
             mPresenter.getComicById(mComicId);

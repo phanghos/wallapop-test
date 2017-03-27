@@ -39,9 +39,11 @@ import butterknife.OnClick;
  */
 public class ComicsFragment extends Fragment implements ComicsView, ComicAdapter.OnItemClickListener {
 
+    public static final String TAG = "comics_fragment";
+
     @BindView(R.id.list) RecyclerView mRecyclerView;
-    RecyclerView.LayoutManager mLayoutMngr;
-    ComicAdapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutMngr;
+    private ComicAdapter mAdapter;
 
     @BindView(R.id.loader) AVLoadingIndicatorView mLoader;
     @BindView(R.id.btnRetry) Button mBtnRetry;
@@ -55,7 +57,7 @@ public class ComicsFragment extends Fragment implements ComicsView, ComicAdapter
     }
 
     // Presenter for this view
-    ComicsPresenter mPresenter;
+    private ComicsPresenter mPresenter;
 
     /**
      * Sets this fragment as a retained with the call to setRetainInstance(true)
@@ -181,7 +183,7 @@ public class ComicsFragment extends Fragment implements ComicsView, ComicAdapter
     public void onItemClicked(int position) {
         Comic comic = mAdapter.get(position);
         Intent i = new Intent(getActivity(), DetailsActivity.class);
-        i.putExtra("comic_id", comic.getId());
+        i.putExtra(DetailsFragment.PARAM_COMIC_ID, comic.getId());
         startActivity(i);
     }
 

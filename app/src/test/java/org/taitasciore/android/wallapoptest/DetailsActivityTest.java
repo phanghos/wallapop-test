@@ -33,21 +33,21 @@ public class DetailsActivityTest {
     @Test
     public void fragmentShouldNotBeNull() {
         Intent i = new Intent();
-        i.putExtra("comic_id", 1);
+        i.putExtra(DetailsFragment.PARAM_COMIC_ID, 1);
         mController = Robolectric.buildActivity(DetailsActivity.class, i);
         mActivity = (DetailsActivity) mController.create(null).visible().get();
-        Fragment f = mActivity.getSupportFragmentManager().findFragmentByTag("details_fragment");
+        Fragment f = mActivity.getSupportFragmentManager().findFragmentByTag(DetailsFragment.TAG);
         assertNotNull(f);
     }
 
     @Test
     public void fragmentShouldBeNull() {
         mActivity = Robolectric.setupActivity(DetailsActivity.class);
-        Fragment f = mActivity.getSupportFragmentManager().findFragmentByTag("details_fragment");
+        Fragment f = mActivity.getSupportFragmentManager().findFragmentByTag(DetailsFragment.TAG);
         assertNull(f);
         mController = Robolectric.buildActivity(DetailsActivity.class);
         mActivity = (DetailsActivity) mController.create(new Bundle()).visible().get();
-        f = mActivity.getSupportFragmentManager().findFragmentByTag("details_fragment");
+        f = mActivity.getSupportFragmentManager().findFragmentByTag(DetailsFragment.TAG);
         assertNull(f);
     }
 

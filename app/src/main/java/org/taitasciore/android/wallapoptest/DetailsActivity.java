@@ -28,12 +28,12 @@ public class DetailsActivity extends AppCompatActivity {
         setupToolbar();
 
         if (savedInstanceState == null) {
-            int comicId = getIntent().getIntExtra("comic_id", 0);
+            int comicId = getIntent().getIntExtra(DetailsFragment.PARAM_COMIC_ID, 0);
 
             if (comicId != 0) {
                 DetailsFragment f = DetailsFragment.newInstance(comicId);
                 getSupportFragmentManager().beginTransaction()
-                        .add(R.id.content, f, "details_fragment").commit();
+                        .add(R.id.content, f, DetailsFragment.TAG).commit();
             }
         }
     }
