@@ -8,3 +8,4 @@ while running background tasks and also to persist object state across screen ro
 * **Retrofit** was used to send HTTP requests to the API
 * **ButterKnife** was used for view injection
 * **Fresco** was used for image loading & caching
+* User can swipe left or up from _DetailsActivity_ to go back to _ComicsActivity_
